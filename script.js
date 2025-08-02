@@ -1,1 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => { var chart = new ApexCharts(document.querySelector('#chart'), { chart: { type: 'line' }, series: [{ name: 'Impôt', data: [0,1000,2000] }], xaxis: { categories: ['0$', '100k$', '200k$'] } }); chart.render(); });
+// Contenu simulé pour script.js
