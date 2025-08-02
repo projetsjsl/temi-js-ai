@@ -23,9 +23,10 @@ function renderGraph(revenu, temi) {
   }
 
   const ctx = canvas.getContext('2d');
+  const ChartLib = Chart.Chart || Chart;
+
   if (window.temiChart) window.temiChart.destroy();
 
-  const ChartLib = Chart.Chart || Chart; // pour compatibilité UMD vs global
   window.temiChart = new ChartLib(ctx, {
     type: 'line',
     data: {
@@ -33,19 +34,43 @@ function renderGraph(revenu, temi) {
       datasets: [{
         label: 'TEMI (%)',
         data: [20, temi],
-        borderColor: 'red',
-        tension: 0.3
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        pointBackgroundColor: 'white',
+        pointRadius: 5,
+        tension: 0.4,
+        fill: true
       }]
     },
     options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white',
+            font: { size: 14 }
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `À ${context.label}$, TEMI: ${context.raw.toFixed(1)}%`;
+            }
+          }
+        }
+      },
       scales: {
+        x: {
+          ticks: { color: 'white' },
+          title: { display: true, text: "Revenu", color: 'white' }
+        },
         y: {
           beginAtZero: true,
-          max: 60
+          max: 60,
+          ticks: { color: 'white' },
+          title: { display: true, text: "TEMI (%)", color: 'white' }
         }
       }
     }
   });
 }
-
-
