@@ -6,7 +6,7 @@ function calculTEMI() {
   const gain = parseFloat(document.getElementById('gain').value);
 
   const revenu_total = emploi + reer + dividendes + interets + gain;
-  const taux_marginal = (revenu_total > 90997) ? 0.45 : 0.35;  // simplifié
+  const taux_marginal = (revenu_total > 90997) ? 0.45 : 0.35;
   const temi = taux_marginal * 100;
 
   document.getElementById('resultat').innerText =
@@ -25,7 +25,8 @@ function renderGraph(revenu, temi) {
   const ctx = canvas.getContext('2d');
   if (window.temiChart) window.temiChart.destroy();
 
-  window.temiChart = new Chart(ctx, {
+  const ChartLib = Chart.Chart || Chart; // pour compatibilité UMD vs global
+  window.temiChart = new ChartLib(ctx, {
     type: 'line',
     data: {
       labels: [0, revenu],
