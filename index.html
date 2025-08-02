@@ -1,41 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>TEMI-JS AI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <meta charset="UTF-8">
+  <title>Simulateur TEMI 2025</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="apexcharts.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>TEMI-JS AI <span>2025</span></h1>
-        <form id="temi-form">
-            <label>Situation familiale
-                <select id="situation">
-                    <option value="celibataire">Célibataire</option>
-                    <option value="couple">Couple</option>
-                </select>
-            </label>
-            <label>Âge <input type="number" id="age" value="67" /></label>
-            <label>Province
-                <select id="province">
-                    <option value="quebec">Québec</option>
-                    <option value="autre">Autre</option>
-                </select>
-            </label>
-            <h2>Revenus annuels</h2>
-            <label>Emploi ($) <input type="number" id="emploi" value="38000" /></label>
-            <label>REER retiré ($) <input type="number" id="reer" value="12000" /></label>
-            <label>Dividendes ($) <input type="number" id="dividende" value="7500" /></label>
-            <label>Intérêts ($) <input type="number" id="interets" value="2000" /></label>
-            <label>Gain en capital imposable ($) <input type="number" id="gain" value="4000" /></label>
-            <label>Cotisation REER ($) <input type="number" id="cotisation" value="0" /></label>
-            <button type="button" onclick="calculerTEMI()">Calculer TEMI</button>
-        </form>
-        <div id="resultat"></div>
-        <div id="chart"></div>
-    </div>
-    <script src="script.js"></script>
+  <h1>Simulateur TEMI 2025</h1>
+  <form id="temiForm">
+    <label>Statut fiscal:</label><select><option>Célibataire</option></select><br>
+    <label>Nombre d’enfants:</label><input type="number" min="0" max="6"><br>
+    <label>Revenu d'emploi:</label><input type="number"><br>
+    <label>REER retiré:</label><input type="number"><br>
+    <label>Dividendes:</label><input type="number"><br>
+    <label>Intérêts:</label><input type="number"><br>
+    <label>Gains en capital:</label><input type="number"><br>
+    <label>Cotisation REER:</label><input type="number"><br>
+    <button type="button">Calculer</button>
+  </form>
+  <div id="chart"></div>
+  <script src="script.js"></script>
 </body>
 </html>
