@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMI-JS AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>TEMI-JS AI</h1>
+        <div class="form">
+            <label>Situation familiale
+                <select id="famille">
+                    <option value="celibataire">Célibataire</option>
+                    <option value="couple">Couple</option>
+                </select>
+            </label>
+            <label>Âge
+                <input type="number" id="age" value="67">
+            </label>
+            <label>Province
+                <select id="province">
+                    <option value="qc">Québec</option>
+                </select>
+            </label>
+            <label>Revenus d'emploi ($)
+                <input type="number" id="emploi" value="38000">
+            </label>
+            <label>REER retiré ($)
+                <input type="number" id="reer" value="12000">
+            </label>
+            <label>Dividendes ($)
+                <input type="number" id="dividendes" value="7500">
+            </label>
+            <label>Intérêts ($)
+                <input type="number" id="interets" value="2000">
+            </label>
+            <label>Gain en capital imposable ($)
+                <input type="number" id="gain" value="4000">
+            </label>
+            <button onclick="calculTEMI()">Calculer TEMI</button>
+        </div>
+        <canvas id="temiChart" width="400" height="200"></canvas>
+        <div id="resultat"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
