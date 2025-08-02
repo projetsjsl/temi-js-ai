@@ -1,1 +1,3 @@
-Version Apex complète avec tous les champs et une vraie courbe progressive du TEMI.
+# TEMI-JS AI - Mixed Chart
+
+Visualisation interactive TEMI (%) + impôt total ($) sur deux axes Y avec ApexCharts.
