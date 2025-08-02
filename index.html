@@ -3,27 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TEMI-JS AI</title>
+  <title>TEMI-JS AI - Apex</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
   <div id="app">
     <h1>TEMI-JS AI</h1>
     <div class="form">
-      <label>Situation familiale
-        <select id="famille">
-          <option value="celibataire">Célibataire</option>
-          <option value="couple">Couple</option>
-        </select>
-      </label>
-      <label>Âge
-        <input type="number" id="age" value="67" />
-      </label>
-      <label>Province
-        <select id="province">
-          <option value="qc">Québec</option>
-        </select>
-      </label>
       <label>Revenus d'emploi ($)
         <input type="number" id="emploi" value="38000" />
       </label>
@@ -41,10 +28,9 @@
       </label>
       <button onclick="calculTEMI()">Calculer TEMI</button>
     </div>
-    <canvas id="temiChart" width="400" height="200"></canvas>
     <div id="resultat"></div>
+    <div id="chart" style="margin-top: 30px;"></div>
   </div>
-  <script src="chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

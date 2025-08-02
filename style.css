@@ -12,7 +12,7 @@ body {
   display: block;
   margin-top: 10px;
 }
-input, select {
+input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -23,11 +23,9 @@ input, select {
 button {
   margin-top: 15px;
   padding: 10px;
-  background-color: #333;
+  background-color: #e53935;
   color: white;
   border: none;
   cursor: pointer;
-}
-canvas {
-  margin-top: 20px;
+  width: 100%;
 }

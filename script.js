@@ -12,65 +12,59 @@ function calculTEMI() {
   document.getElementById('resultat').innerText =
     `Revenu total : ${revenu_total.toFixed(2)} $, TEMI estimé : ${temi.toFixed(1)} %`;
 
-  renderGraph(revenu_total, temi);
+  renderApexChart(revenu_total, temi);
 }
 
-function renderGraph(revenu, temi) {
-  const canvas = document.getElementById('temiChart');
-  if (!canvas || typeof Chart === 'undefined') {
-    alert("Erreur d'affichage du graphique.");
-    return;
-  }
-
-  const ctx = canvas.getContext('2d');
-  const ChartLib = Chart.Chart || Chart;
-
-  if (window.temiChart) window.temiChart.destroy();
-
-  window.temiChart = new ChartLib(ctx, {
-    type: 'line',
-    data: {
-      labels: [0, revenu],
-      datasets: [{
-        label: 'TEMI (%)',
-        data: [20, temi],
-        borderColor: 'rgba(255, 99, 132, 1)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        pointBackgroundColor: 'white',
-        pointRadius: 5,
-        tension: 0.4,
-        fill: true
-      }]
+function renderApexChart(revenu, temi) {
+  const options = {
+    chart: {
+      type: 'line',
+      height: 350,
+      background: '#1e1e1e',
+      foreColor: '#ffffff'
     },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: 'white',
-            font: { size: 14 }
-          }
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return `À ${context.label}$, TEMI: ${context.raw.toFixed(1)}%`;
-            }
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: { color: 'white' },
-          title: { display: true, text: "Revenu", color: 'white' }
-        },
-        y: {
-          beginAtZero: true,
-          max: 60,
-          ticks: { color: 'white' },
-          title: { display: true, text: "TEMI (%)", color: 'white' }
+    series: [{
+      name: 'TEMI (%)',
+      data: [20, temi]
+    }],
+    xaxis: {
+      categories: [0, revenu],
+      title: { text: 'Revenu ($)' }
+    },
+    yaxis: {
+      min: 0,
+      max: 60,
+      title: { text: 'TEMI (%)' }
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        type: 'vertical',
+        gradientToColors: ['#e53935'],
+        stops: [0, 100]
+      }
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 3
+    },
+    markers: {
+      size: 5
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toFixed(1)} %`
         }
       }
     }
-  });
+  };
+
+  if (window.temiChart) {
+    window.temiChart.updateOptions(options);
+  } else {
+    window.temiChart = new ApexCharts(document.querySelector("#chart"), options);
+    window.temiChart.render();
+  }
 }

@@ -1,3 +1,3 @@
-# TEMI-JS AI
+# TEMI-JS AI - Apex Version
 
-Simulateur du TEMI (Taux effectif marginal d’imposition) basé sur les données du CQFF. Affichage graphique interactif et design optimisé mobile.
+Simulateur TEMI avec graphique ApexCharts moderne, responsive et mobile-ready.
