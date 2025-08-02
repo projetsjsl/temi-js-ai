@@ -47,3 +47,5 @@ function renderGraph(revenu, temi) {
     }
   });
 }
+
+
