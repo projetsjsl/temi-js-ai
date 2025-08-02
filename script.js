@@ -12,10 +12,24 @@ function calculTEMI() {
   document.getElementById('resultat').innerText =
     `Revenu total : ${revenu_total.toFixed(2)} $, TEMI estimé : ${temi.toFixed(1)} %`;
 
-  renderApexChart(revenu_total, temi);
+  renderApexCourbeComplete();
 }
 
-function renderApexChart(revenu, temi) {
+function renderApexCourbeComplete() {
+  const xData = [];
+  const yData = [];
+
+  for (let i = 0; i <= 150000; i += 1000) {
+    let taux;
+    if (i < 50000) taux = 0.25;
+    else if (i < 80000) taux = 0.30;
+    else if (i < 100000) taux = 0.35;
+    else if (i < 130000) taux = 0.40;
+    else taux = 0.45;
+    xData.push(i);
+    yData.push(taux * 100);
+  }
+
   const options = {
     chart: {
       type: 'line',
@@ -25,10 +39,10 @@ function renderApexChart(revenu, temi) {
     },
     series: [{
       name: 'TEMI (%)',
-      data: [20, temi]
+      data: yData
     }],
     xaxis: {
-      categories: [0, revenu],
+      categories: xData,
       title: { text: 'Revenu ($)' }
     },
     yaxis: {
@@ -50,7 +64,7 @@ function renderApexChart(revenu, temi) {
       width: 3
     },
     markers: {
-      size: 5
+      size: 4
     },
     tooltip: {
       y: {
