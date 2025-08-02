@@ -1,1 +1,14 @@
-// Contenu simulé pour style.css
+
+body {
+  background-color: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+input, select {
+  margin-bottom: 10px;
+}
