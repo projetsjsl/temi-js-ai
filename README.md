@@ -1,5 +1,3 @@
 # TEMI-JS AI
 
-Simulateur du TEMI (Taux effectif marginal d’imposition) basé sur les données CQFF.
-
-Interface mobile-friendly, graphique dynamique, calculs fiscaux simplifiés.
+Simulateur du TEMI (Taux effectif marginal d’imposition) basé sur les données du CQFF. Affichage graphique interactif et design optimisé mobile.
